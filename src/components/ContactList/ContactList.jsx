@@ -8,15 +8,19 @@ export const ContactList = () => {
   const filter = useSelector(selectFilter);
 
   const handlefilteredContacts = () => {
-    return contacts.filter(contact => {
-      return contact.name.toLowerCase().includes(filter.toLowerCase());
-    });
+    if (!contacts) {
+      return;
+    } else
+      return contacts.filter(contact => {
+        return contact.name.toLowerCase().includes(filter.toLowerCase());
+      });
   };
   return (
     <ul>
-      {handlefilteredContacts().map(({ name, number, id }) => (
-        <Contact key={id} id={id} name={name} number={number} />
-      ))}
+      {contacts &&
+        handlefilteredContacts().map(({ name, number, id }) => (
+          <Contact key={id} id={id} name={name} number={number} />
+        ))}
     </ul>
   );
 };

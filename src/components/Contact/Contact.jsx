@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/slice';
+import { removeContactThunk } from 'redux/operations';
 import { StyledWrapper, StyledButton } from './Contact.styled';
 
 export const Contact = ({ name, number, id }) => {
@@ -12,7 +12,8 @@ export const Contact = ({ name, number, id }) => {
       </li>
       <StyledButton
         onClick={() => {
-          dispatch(deleteContact(id));
+          console.log(id);
+          dispatch(removeContactThunk(id));
         }}
       >
         Delete
