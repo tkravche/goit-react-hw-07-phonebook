@@ -30,7 +30,6 @@ export const ContactForm = () => {
       return;
     } else if (
       contacts.some(contact => {
-        console.log(contact);
         return contact.name.toLowerCase().includes(name.toLowerCase());
       })
     ) {

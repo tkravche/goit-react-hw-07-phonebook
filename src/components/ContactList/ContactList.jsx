@@ -17,7 +17,7 @@ export const ContactList = () => {
   };
   return (
     <ul>
-      {contacts &&
+      {contacts.length > 0 &&
         handlefilteredContacts().map(({ name, number, id }) => (
           <Contact key={id} id={id} name={name} number={number} />
         ))}
